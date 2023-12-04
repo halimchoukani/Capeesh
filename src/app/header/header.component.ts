@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+
+import 'boxicons';
+
+
 @Component({
   selector: 'app-header',
   standalone: true,
