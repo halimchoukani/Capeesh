@@ -6,11 +6,12 @@
       <input
         type="search"
         name="search"
+        id="search-input"
         placeholder="Search..."
         class="search-input disabled"
       />
       }
-      <mat-icon (click)="clicked = true" id="search-icon">search</mat-icon>
+      <mat-icon (click)="clicked = !clicked" id="search-icon">search</mat-icon>
     </li>
     <li>
       <a routerLink="/home"> <i class="bx bx-home-circle"></i> Home</a>

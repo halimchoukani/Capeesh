@@ -48,12 +48,12 @@ nav ul li a:hover {
   background-color: #525252;
   color: #fff;
 }
+
 #search {
   display: flex;
-  border: 1px solid #000;
   border-radius: 5px;
-
   flex-direction: row;
+  gap: 10px;
   align-items: center;
   justify-content: space-between;
   padding: 5px 10px;
@@ -61,20 +61,21 @@ nav ul li a:hover {
 }
 @keyframes search {
   0% {
-    width: 0px;
+    width: 0vw;
   }
   100% {
-    width: 300px;
+    width: 35vw;
   }
 }
 .search-input {
-  border: none;
   outline: none;
   padding: 20px;
   font-size: 18px;
   font-weight: 500;
   width: 0px;
   height: 40px;
+  border: 1px solid #525252;
+  border-radius: 15px;
   animation: search 0.2s ease-in forwards;
 }
 
