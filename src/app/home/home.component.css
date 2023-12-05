@@ -1,0 +1,48 @@
+.suggs {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  overflow-x: hidden;
+  gap: 50px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 21px;
+}
+.suggs .link a {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #525252;
+  border-radius: 15px;
+  padding: 20px 200px;
+}
+
+.suggs img {
+  width: 700px;
+  height: 670px;
+}
+h2 {
+  font-size: 100px;
+  font-weight: normal;
+}
+h3 {
+  font-size: 38px;
+  font-weight: normal;
+}
+p {
+  font-size: 27px;
+  font-weight: normal;
+}
+.promo {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  width: 50vw;
+  margin: 1% auto;
+}
+.promo img {
+  width: 250px;
+  height: 250px;
+}
