@@ -45,6 +45,16 @@ export class SharedDataService {
         'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-mini-blue-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1604343704000',
       promo: true,
     },
+    {
+      id: 5,
+      name: 'iPhone SE',
+      price: 399,
+      brand: 'Apple',
+      description: 'A great phone with one of the best cameras',
+      image:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-white-select-2020?wid=940&hei=1112&fmt=png-alpha&.v=1586574262177',
+      promo: true,
+    },
   ];
   constructor() {}
 }

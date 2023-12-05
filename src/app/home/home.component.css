@@ -1,8 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  width: 90vw;
+  margin: auto;
+}
+
 .suggs {
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 100vw;
   overflow-x: hidden;
   gap: 50px;
 }
@@ -36,13 +45,60 @@ p {
   font-size: 27px;
   font-weight: normal;
 }
+
+.promo-cont h2 {
+  font-size: 70px;
+  font-weight: normal;
+}
+.promo-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 90vw;
+  margin: auto;
+}
+
 .promo {
+  position: relative;
   display: grid;
+  width: 90vw;
   grid-template-columns: auto auto auto auto;
-  width: 50vw;
-  margin: 1% auto;
+  gap: 50px;
+  margin: auto;
 }
 .promo img {
+  position: relative;
+  top: 0;
+  left: 0;
   width: 250px;
   height: 250px;
+  transition: 0.2s ease-in-out;
+}
+.promo .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 15px;
+  transition: 0.2s ease-in-out;
+}
+.promo .card .card-detail p {
+  opacity: 0;
+  position: relative;
+  font-size: 25px;
+  font-weight: normal;
+}
+.promo .card:hover {
+  background-color: #848484;
+  color: #fff;
+  cursor: pointer;
+}
+.promo .card:hover .card-detail p {
+  opacity: 1;
+}
+.promo .card:hover img {
+  top: -20%;
 }
