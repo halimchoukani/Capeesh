@@ -8,12 +8,13 @@
 }
 
 .suggs {
+  opacity: 1;
   height: 90vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  overflow-x: hidden;
   gap: 50px;
+  overflow: hidden;
 }
 .details {
   display: flex;
@@ -22,12 +23,21 @@
   gap: 21px;
 }
 .suggs .link a {
+  display: block;
+  width: 30vw;
+  box-sizing: border-box;
+  text-align: center;
   text-decoration: none;
   color: #ffffff;
   font-size: 20px;
   background-color: #525252;
   border-radius: 15px;
   padding: 20px 200px;
+
+  transition: 0.2s ease-in-out;
+}
+.suggs .link:hover a {
+  letter-spacing: 2px;
 }
 
 .suggs img {
@@ -53,6 +63,7 @@ p {
 }
 .promo-cont {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -78,6 +89,7 @@ p {
   transition: 0.2s ease-in-out;
 }
 .promo .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,4 +114,5 @@ p {
 }
 .promo .card:hover img {
   top: -20%;
+  transform: scale(1.1);
 }

@@ -1,7 +1,9 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedDataService } from '../services/shared-data.service';
 import { of, filter } from 'rxjs';
+import { gsap } from 'gsap/gsap-core';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -10,6 +12,42 @@ import { of, filter } from 'rxjs';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  @ViewChild('cont', { static: true }) cont: any;
+
+  ngAfterViewInit() {
+    gsap.from('.image', {
+      duration: 1,
+      opacity: 0,
+      delay: 1,
+      x: '100%',
+      ease: 'power3.out',
+      onComplete: () => {
+        console.log('Slide down animation completed');
+      },
+    });
+    gsap.from('.det', {
+      duration: 1,
+      opacity: 0,
+      x: '-200%',
+      ease: 'power3.out',
+      delay: 0.5,
+      stagger: 0.5,
+      onComplete: () => {
+        console.log('Slide down animation completed');
+      },
+    });
+    gsap.from('#title', {
+      duration: 1,
+      opacity: 0,
+      x: '-100%',
+      ease: 'power3.out',
+      delay: 2,
+      onComplete: () => {
+        console.log('Slide down animation completed');
+      },
+    });
+  }
+
   randomPhone: any;
   promoPhones: any;
   constructor(private _shared: SharedDataService) {

@@ -1,10 +1,10 @@
-<div class="container">
-  <div class="suggs">
+<div class="container" #cont>
+  <div class="suggs" #suggs id="suggs">
     <div class="details">
-      <h2>{{ randomPhone.name }}</h2>
-      <h3>{{ randomPhone.brand }}</h3>
-      <p>{{ randomPhone.description }}</p>
-      <div class="link">
+      <h2 class="det">{{ randomPhone.name }}</h2>
+      <h3 class="det">{{ randomPhone.brand }}</h3>
+      <p class="det">{{ randomPhone.description }}</p>
+      <div class="link det">
         <a href="#">View Details</a>
       </div>
     </div>
@@ -12,8 +12,8 @@
       <img [src]="randomPhone.image" alt="phone" />
     </div>
   </div>
-  <div class="promo-cont">
-    <h2>Promos</h2>
+  <div class="promo-cont" #promo>
+    <h2 id="title">Promos</h2>
     <div class="promo">
       <div class="card" *ngFor="let promo of promoPhones">
         <div class="image">

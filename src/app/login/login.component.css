@@ -1,0 +1,81 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+  width: 50vw;
+  height: 50vw;
+  height: fit-content;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.container h2 {
+  font-size: 80px;
+  font-weight: 500;
+}
+.container .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.container .form input,
+button {
+  width: 50%;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #525252;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.container .form button {
+  background-color: #525252;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.container .form button:hover {
+  background-color: #413f3f;
+}
+
+.container a {
+  position: relative;
+  color: #525252;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.container a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #525252;
+  transition: 0.2s ease-in-out;
+}
+
+@keyframes border-bottom {
+  to {
+    width: 100%;
+  }
+}
+
+.container a:hover::before {
+  /* Updated this line */
+  animation: border-bottom 0.5s ease-in-out forwards;
+}

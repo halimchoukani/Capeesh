@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="container">
+  <h2>Login</h2>
+  <form (submit)="onSubmit()" class="form">
+    <input
+      type="text"
+      placeholder="User name"
+      name="username"
+      [(ngModel)]="data.username"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="data.password"
+    />
+    <button type="submit">Sign in</button>
+  </form>
+  <a [routerLink]="'/registre'">You Don't Have Account : Registre</a>
+</div>

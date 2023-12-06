@@ -1,23 +1,24 @@
-<nav>
-  <h3>Capeesh</h3>
+<nav #nav>
+  <h3 id="header-title">Capeesh</h3>
   <ul>
     <li id="search">
-      @if(clicked) {
       <input
+        [class.disabled]="!clicked"
+        type="search"
         type="search"
         name="search"
         id="search-input"
         placeholder="Search..."
-        class="search-input disabled"
+        class="search-input"
       />
-      }
+
       <mat-icon (click)="clicked = !clicked" id="search-icon">search</mat-icon>
     </li>
-    <li>
+    <li class="links">
       <a routerLink="/home"> <i class="bx bx-home-circle"></i> Home</a>
     </li>
-    <li><a routerLink="/store">Store</a></li>
-    <li><a routerLink="/about">About</a></li>
+    <li class="links"><a routerLink="/store">Store</a></li>
+    <li class="links"><a routerLink="/about">About</a></li>
     <li id="login"><a routerLink="/login"> Login </a></li>
   </ul>
 </nav>

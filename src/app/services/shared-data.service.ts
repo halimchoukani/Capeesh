@@ -4,6 +4,29 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SharedDataService {
+  users: any = [
+    {
+      username: 'admin',
+      password: 'admin',
+    },
+    {
+      username: 'user',
+      password: 'user',
+    },
+    {
+      username: 'test',
+      password: 'test',
+    },
+    {
+      username: 'test1',
+      password: 'test1',
+    },
+    {
+      username: 'test2',
+      password: 'test2',
+    },
+  ];
+
   phones: any = [
     {
       id: 1,
