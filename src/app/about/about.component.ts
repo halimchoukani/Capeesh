@@ -24,6 +24,17 @@ export class AboutComponent implements AfterViewInit {
         console.log('Slide down animation completed');
       },
     });
+    gsap.to(this.div.nativeElement, {
+      duration: 1.5,
+      color: 'black',
+      backgroundColor: 'white',
+      opacity: 1,
+      ease: 'ease-in',
+      delay: 1.5,
+      onComplete: () => {
+        console.log('Slide down animation completed');
+      },
+    });
 
     // constructor(private ngZone: NgZone) {}
 

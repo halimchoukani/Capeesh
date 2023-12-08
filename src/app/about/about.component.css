@@ -25,6 +25,7 @@
   padding: 20px;
   border-radius: 15px;
 }
+
 .team {
   display: grid;
   grid-template-columns: auto auto auto auto;

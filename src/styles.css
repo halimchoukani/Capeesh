@@ -6,6 +6,10 @@
   margin: 0px;
   font-family: "Poppins", sans-serif;
 }
+*::selection {
+  background-color: #525252;
+  color: white;
+}
 body {
   overflow-x: hidden;
   box-sizing: border-box;
