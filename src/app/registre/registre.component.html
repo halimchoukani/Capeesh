@@ -1,1 +1,37 @@
-<p>registre works!</p>
+<div class="container">
+  <h2>Registre</h2>
+  <form class="form">
+    <input
+      type="text"
+      placeholder="User name"
+      name="username"
+      [(ngModel)]="data.username"
+    />
+    <input
+      type="email"
+      placeholder="Email"
+      name="email"
+      [(ngModel)]="data.email"
+    />
+    <textarea
+      name="adresse"
+      [(ngModel)]="data.adresse"
+      placeholder="Adresse"
+    ></textarea>
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="data.password"
+    />
+    <input
+      type="file"
+      placeholder="image"
+      name="image"
+      id="file"
+      (change)="select($event)"
+    />
+    <button type="submit" (submit)="registre()">Registre</button>
+  </form>
+  <a [routerLink]="'/login'">You Have Account : Login?</a>
+</div>

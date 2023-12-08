@@ -1,8 +1,8 @@
 import { Component, NgModule, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedDataService } from '../services/shared-data.service';
 import { of, filter } from 'rxjs';
 import { gsap } from 'gsap/gsap-core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -50,7 +50,7 @@ export class HomeComponent {
 
   randomPhone: any;
   promoPhones: any;
-  constructor(private _shared: SharedDataService) {
+  constructor(private _shared: UserService) {
     of(this._shared.phones).subscribe((phones: any[]) => {
       const randomIndex = Math.floor(Math.random() * phones.length);
       this.randomPhone = phones[randomIndex];
