@@ -1,6 +1,7 @@
+@if(!this.users.isLoggedIn()){
 <div class="container">
   <h2>Login</h2>
-  <form (submit)="onSubmit()" class="form">
+  <form class="form">
     <input
       type="text"
       placeholder="User name"
@@ -13,7 +14,10 @@
       name="password"
       [(ngModel)]="data.password"
     />
-    <button type="submit">Sign in</button>
+    <button type="submit" (click)="onSubmit()">Sign in</button>
   </form>
   <a [routerLink]="'/registre'">You Don't Have Account ?: Registre</a>
 </div>
+}@else {
+<h1>You Are Logged IN</h1>
+}

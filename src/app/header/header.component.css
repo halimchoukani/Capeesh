@@ -18,7 +18,7 @@ nav h3 {
   font-weight: 250;
 }
 
-nav ul {
+nav .nav-ul {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,8 +26,11 @@ nav ul {
   list-style: none;
   margin-right: 30px;
 }
-
-nav ul li a {
+nav .nav-ul .links .linkText:hover {
+  background-color: #525252;
+  color: #fff;
+}
+nav .nav-ul .links .linkText {
   text-decoration: none;
   padding: 15px;
   margin: 20px;
@@ -57,9 +60,101 @@ nav ul li a {
   text-decoration: none;
 }
 
-nav ul li a:hover {
+#profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  margin-right: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#profile ul .loggList {
+  position: relative;
+  list-style: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.profile-list:not(:focus) {
+  display: none;
+}
+.user {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+}
+#profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+#profile ul .loggList:hover {
   background-color: #525252;
   color: #fff;
+}
+#profile ul .loggList:hover a {
+  color: #fff;
+}
+#profile ul .loggList a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+#profile-list {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#profile ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 25%;
+  background-color: #fff;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  z-index: 1;
+  gap: 10px;
+}
+#panier {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#panier-length {
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: #525252;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 100%;
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+}
+#panier:hover #panier-length {
+  background-color: white;
+  color: #525252;
 }
 
 #search {

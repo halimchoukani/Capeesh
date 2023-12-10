@@ -1,3 +1,4 @@
+@if(!this._user.isLoggedIn()){
 <div class="container">
   <h2>Registre</h2>
   <form class="form">
@@ -31,7 +32,10 @@
       id="file"
       (change)="select($event)"
     />
-    <button type="submit" (submit)="registre()">Registre</button>
+    <button type="submit" (click)="registre()">Registre</button>
   </form>
   <a [routerLink]="'/login'">You Have Account : Login?</a>
 </div>
+}@else {
+<h1>You Are Logged IN</h1>
+}

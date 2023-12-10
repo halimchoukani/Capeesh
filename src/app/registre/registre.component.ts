@@ -22,15 +22,8 @@ export class RegistreComponent {
     this.image = event.target.files[0];
   }
   registre() {
-    let fd = new FormData();
-    fd.append('username', this.data.username);
-    fd.append('email', this.data.email);
-    fd.append('adresse', this.data.adresse);
-    fd.append('password', this.data.password);
-    fd.append('image', this.image);
-    this._user.registre(fd).subscribe((res) => {
-      this.router.navigate(['/login']);
-    });
+    this._user.registre(this.data, this.image);
+    this.router.navigate(['/store']);
   }
-  constructor(private _user: UserService, private router: Router) {}
+  constructor(public _user: UserService, private router: Router) {}
 }

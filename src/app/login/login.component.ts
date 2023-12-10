@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,24 +15,20 @@ export class LoginComponent {
     username: '',
     password: '',
   };
-  users: any;
 
   onSubmit() {
     // if (this.data.username === 'admin' && this.data.password === 'admin') {
     //   this.router.navigate(['/store']);
     // } else {
-    //   const userExists = this.users.some(
-    //     (user: { username: any; password: any }) =>
-    //       user.username === this.data.username &&
-    //       user.password === this.data.password
-    //   );
+    //
     //   if (userExists) {
     //     this.router.navigate(['/store']);
     //   } else {
     //     alert('Wrong username or password');
     //   }
     // }
+    this.users.login(this.data);
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public users: UserService) {}
 }

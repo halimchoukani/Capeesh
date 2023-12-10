@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { gsap } from 'gsap';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +13,20 @@ import { gsap } from 'gsap';
 })
 export class HeaderComponent implements AfterViewInit {
   clicked = false;
-
+  ngOnInit(): void {
+    if (localStorage.getItem('user') != null) {
+      this.users.currentUser = this.users.users.find(
+        (user: { username: any; password: any }) =>
+          user.username ===
+            JSON.parse(localStorage.getItem('user')!).username &&
+          user.password === JSON.parse(localStorage.getItem('user')!).password
+      );
+    }
+  }
   @ViewChild('nav', { static: true }) nav!: ElementRef;
-
+  constructor(public users: UserService) {}
+  currentuser = this.users.currentUser;
+  id = this.users.currentUser.id;
   ngAfterViewInit() {
     gsap.from(this.nav.nativeElement, {
       duration: 0.5,

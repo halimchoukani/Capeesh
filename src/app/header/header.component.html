@@ -1,6 +1,6 @@
 <nav #nav>
   <h3 id="header-title">Capeesh</h3>
-  <ul>
+  <ul class="nav-ul">
     <li id="search">
       <input
         [class.disabled]="!clicked"
@@ -15,12 +15,29 @@
       <mat-icon (click)="clicked = !clicked" id="search-icon">search</mat-icon>
     </li>
     <li class="links">
-      <a routerLink="/home"> <i class="bx bx-home-circle"></i> Home</a>
+      <a routerLink="/home" class="linkText">
+        <i class="bx bx-home-circle"></i> Home</a
+      >
     </li>
-    <li class="links"><a routerLink="/store">Store</a></li>
-    <li class="links"><a routerLink="/about">About</a></li>
-    <li class="login">
-      <a routerLink="/login"> Login </a>
+    <li class="links"><a class="linkText" routerLink="/store">Store</a></li>
+    <li class="links"><a class="linkText" routerLink="/about">About</a></li>
+    @if(this.users.isLoggedIn()){
+    <li id="profile">
+      <div class="user">
+        <a
+          class="linkText"
+          [routerLink]="'/profile/' + this.users.currentUser.id"
+          ><img [src]="this.users.currentUser.image" id="profile-img" alt=""
+        /></a>
+      </div>
     </li>
+    <li class="links">
+      <a class="linkText" (click)="this.users.logout()">Logout</a>
+    </li>
+    }@else{
+    <li class="links login">
+      <a class="linkText" routerLink="/login"> Login </a>
+    </li>
+    }
   </ul>
 </nav>
