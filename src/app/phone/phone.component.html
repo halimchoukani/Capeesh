@@ -26,11 +26,13 @@
   <h2>Related Phones</h2>
   <div class="related">
     <div class="card" *ngFor="let promo of relatedPhones">
-      <div class="image">
-        <img [src]="promo.image" alt="phone" />
-      </div>
-      <div class="card-detail">
-        <p>{{ promo.name }}</p>
+      <div [routerLink]="'/phone/' + promo.id">
+        <div class="image">
+          <img [src]="promo.image" alt="phone" />
+        </div>
+        <div class="card-detail">
+          <p>{{ promo.name }}</p>
+        </div>
       </div>
     </div>
   </div>

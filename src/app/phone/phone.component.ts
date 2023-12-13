@@ -1,23 +1,30 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { UserService } from '../services/user.service';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-phone',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './phone.component.html',
-  styleUrl: './phone.component.css',
+  styleUrls: ['./phone.component.css'],
 })
-export class PhoneComponent {
-  id: any;
+export class PhoneComponent implements OnInit {
+  id: number = 0;
   phone: any;
   relatedPhones: any[] = [];
+
+  constructor(
+    public users: UserService,
+    private router: ActivatedRoute,
+    private routeLink: Router
+  ) {}
+
   ngOnInit() {
-    this.id = this.router.snapshot.params['id'];
+    this.id = +this.router.snapshot.params['id'];
     this.phone = this.users.phones.find(
-      (phone: { id: number }) => phone.id === +this.id
+      (phone: { id: number }) => phone.id === this.id
     );
     this.relatedPhones = this.users.RelatedPhones(
       this.phone.brand,
@@ -25,8 +32,13 @@ export class PhoneComponent {
       this.phone.price
     );
   }
+
+  redirect(id: number) {
+    this.id = id;
+    this.routeLink.navigate(['/phone', id]);
+  }
+
   addtopanier() {
     this.users.addPhoneToPanier(this.phone);
   }
-  constructor(public users: UserService, private router: ActivatedRoute) {}
 }
