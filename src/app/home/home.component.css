@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
   gap: 50px;
   overflow: hidden;
 }
@@ -33,7 +34,6 @@
   background-color: #525252;
   border-radius: 15px;
   padding: 20px 200px;
-
   transition: 0.2s ease-in-out;
 }
 .suggs .link:hover a {
@@ -66,6 +66,7 @@ p {
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   gap: 50px;
   width: 90vw;
@@ -74,7 +75,11 @@ p {
 
 .promo {
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   width: 90vw;
   grid-template-columns: auto auto auto auto;
   gap: 50px;
@@ -92,6 +97,7 @@ p {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 400px;
   justify-content: center;
   align-items: center;
   padding: 10px;
