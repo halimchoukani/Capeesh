@@ -105,6 +105,30 @@ export class UserService {
       prixPromo: 0,
       qte: 10,
     },
+    {
+      id: 5,
+      name: 'Huawei P30',
+      brand: 'Huawei',
+      price: 900,
+      color: 'blue',
+      description: 'A smart phone from Huawei.',
+      image: 'https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p30-pro-1.jpg',
+      promo: false,
+      prixPromo: 0,
+      qte: 10,
+    },
+    {
+      id: 6,
+      name: 'Huawei P30',
+      brand: 'Huawei',
+      price: 900,
+      color: 'blue',
+      description: 'A smart phone from Huawei.',
+      image: 'https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p30-pro-1.jpg',
+      promo: false,
+      prixPromo: 0,
+      qte: 10,
+    },
   ];
   currentUser: any = {
     id: -1,
@@ -249,7 +273,7 @@ export class UserService {
         this.panier.phoneprice = phone.price;
         this.currentUser.panier.push(this.panier);
       }
-      
+
       alert('Phone added to cart');
     } else {
       alert('Phone not available');

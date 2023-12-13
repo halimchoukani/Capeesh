@@ -1,1 +1,19 @@
-<p>store works!</p>
+<div class="phones-cont">
+  <h1>Store</h1>
+  <div class="phones">
+    <div class="card" *ngFor="let phone of this.users.phones">
+      <div [routerLink]="'/phone/' + phone.id">
+        <div class="image">
+          <img [src]="phone.image" alt="phone" />
+        </div>
+        <div class="card-detail">
+          <p>{{ phone.name }}</p>
+          <p>
+            {{ phone.brand }}
+          </p>
+          <p>{{ phone.price | currency : "USD" : true : "1.2-2" }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
