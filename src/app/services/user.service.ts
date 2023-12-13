@@ -5,6 +5,18 @@ import { Router } from '@angular/router';
 })
 export class UserService {
   profileclicked = false;
+  panier: any = {
+    id: -1,
+    phonename: '',
+    phonebrand: '',
+    phoneprice: 0,
+    phonecolor: '',
+    phoneimage: '',
+    phonepromo: false,
+    phoneprixPromo: 0,
+    orderdate: new Date(),
+    phoneqte: 0,
+  };
   users: any = [
     {
       id: 0,
@@ -79,6 +91,7 @@ export class UserService {
       image: 'https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p30-pro-1.jpg',
       promo: false,
       prixPromo: 0,
+      qte: 10,
     },
     {
       id: 4,
@@ -88,9 +101,9 @@ export class UserService {
       color: 'blue',
       description: 'A smart phone from Huawei.',
       image: 'https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p30-pro-1.jpg',
-
       promo: false,
       prixPromo: 0,
+      qte: 10,
     },
   ];
   currentUser: any = {
@@ -105,7 +118,6 @@ export class UserService {
     pricePanier: 0,
     phoneNumber: '',
   };
-  
 
   isAdmin() {
     return this.currentUser.username == 'admin';
@@ -130,6 +142,13 @@ export class UserService {
     localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
+  RelatedPhones(brand: any, id: any, price: any) {
+    return this.phones.filter(
+      (phone) =>
+        (phone.brand == brand && phone.id != id && phone.qte > 0) ||
+        (phone.price >= price - 100 && phone.id != id && phone.qte > 0)
+    );
+  }
   phoneExist(data: any) {
     return this.phones.some(
       (phone: { name: any; brand: any }) =>
@@ -138,6 +157,9 @@ export class UserService {
   }
   findUser(id: Number) {
     return this.users.find((user: { id: Number }) => user.id === id);
+  }
+  findPhone(id: Number) {
+    return this.phones.find((phone: { id: Number }) => phone.id === id);
   }
   isExist(data: any) {
     return this.users.some(
@@ -167,23 +189,71 @@ export class UserService {
       alert('Phone not found');
     }
   }
+  decreaseQte(id: Number) {
+    let index = this.phones.findIndex((phone) => phone.id == id);
+    if (index != -1) {
+      if (this.phones[index].qte > 0) {
+        this.phones[index].qte--;
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
   addPhone(data: any) {
     if (this.phones.length == 0) {
       data.id = 1;
     } else {
       if (this.phoneExist(data)) {
         alert('Phone already exist');
+        return false;
       } else {
         data.id = this.phones[this.phones.length - 1].id + 1;
       }
     }
     this.phones.push(data);
+    return true;
     alert('Phone added successfully');
   }
+  foundinPanier(id: Number) {
+    const found = this.currentUser.panier.some(
+      (phone: { id: Number }) => phone.id === id
+    );
+    const index = this.currentUser.panier.findIndex(
+      (phone: { id: Number }) => phone.id === id
+    );
+    if (found) {
+      return index;
+    } else {
+      return -1;
+    }
+  }
   addPhoneToPanier(phone: any) {
-    this.currentUser.panier.push(phone);
-    this.currentUser.pricePanier += phone.price;
-    alert('Phone added to cart');
+    if (this.decreaseQte(phone.id)) {
+      this.panier.id = phone.id;
+      this.panier.phonename = phone.name;
+      this.panier.phonebrand = phone.brand;
+      this.panier.phonecolor = phone.color;
+      this.panier.phoneimage = phone.image;
+      this.panier.phonepromo = phone.promo;
+      this.panier.orderdate = new Date();
+      this.panier.phoneprixPromo = phone.prixPromo;
+      if (this.foundinPanier(phone.id) != -1) {
+        this.panier.phoneqte =
+          this.currentUser.panier[this.foundinPanier(phone.id)].phoneqte + 1;
+        this.panier.phoneprice = phone.price * this.panier.phoneqte;
+      } else {
+        this.panier.phoneqte = 1;
+        this.panier.phoneprice = phone.price;
+        this.currentUser.panier.push(this.panier);
+      }
+      
+      alert('Phone added to cart');
+    } else {
+      alert('Phone not available');
+    }
   }
   login(data: any) {
     if (this.isExist(data)) {

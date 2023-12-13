@@ -5,7 +5,7 @@
       <h3 class="det">{{ randomPhone.brand }}</h3>
       <p class="det">{{ randomPhone.description }}</p>
       <div class="link det">
-        <a href="#">View Details</a>
+        <a [routerLink]="'/phone/' + randomPhone.id">View Details</a>
       </div>
     </div>
     <div class="image">
@@ -16,11 +16,13 @@
     <h2 id="title">Promos</h2>
     <div class="promo">
       <div class="card" *ngFor="let promo of promoPhones">
-        <div class="image">
-          <img [src]="promo.image" alt="phone" />
-        </div>
-        <div class="card-detail">
-          <p>{{ promo.name }}</p>
+        <div [routerLink]="'/phone/' + promo.id">
+          <div class="image">
+            <img [src]="promo.image" alt="phone" />
+          </div>
+          <div class="card-detail">
+            <p>{{ promo.name }}</p>
+          </div>
         </div>
       </div>
     </div>

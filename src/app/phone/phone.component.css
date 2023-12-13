@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+  width: 90vw;
+  margin: 5em auto;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10px;
+}
+.info h2 {
+  font-size: 50px;
+  font-weight: normal;
+}
+.info p {
+  font-size: 20px;
+  font-weight: normal;
+}
+.info .price {
+  font-size: 30px;
+  font-weight: normal;
+}
+.container .image {
+  width: 500px;
+}
+.image img {
+  width: 100%;
+}
+
+.info a {
+  text-decoration: none;
+  color: white;
+  background-color: #525252;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+}
+
+.related-cont h2 {
+  font-size: 70px;
+  font-weight: normal;
+}
+.related-cont {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 90vw;
+  margin: auto;
+}
+
+.related {
+  position: relative;
+  display: grid;
+  width: 90vw;
+  grid-template-columns: auto auto auto auto;
+  gap: 50px;
+  margin: auto;
+}
+.related img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  transition: 0.2s ease-in-out;
+}
+.related .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 15px;
+  transition: 0.2s ease-in-out;
+}
+.related .card .card-detail p {
+  opacity: 0;
+  position: relative;
+  font-size: 25px;
+  font-weight: normal;
+}
+.related .card:hover {
+  background-color: #848484;
+  color: #fff;
+  cursor: pointer;
+}
+.related .card:hover .card-detail p {
+  opacity: 1;
+}
+.related .card:hover img {
+  top: -20%;
+  transform: scale(1.1);
+}

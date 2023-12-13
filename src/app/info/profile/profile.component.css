@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  width: 90vw;
+  margin: 20px auto;
+}
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.profile .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.profile .profile-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.add {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  margin-top: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.promo-cont h2 {
+  font-size: 70px;
+  font-weight: normal;
+}
+.promo-cont {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 90vw;
+  margin: auto;
+}
+
+.order {
+  position: relative;
+  display: grid;
+  width: 90vw;
+  grid-template-columns: auto auto auto auto;
+  gap: 50px;
+  margin: auto;
+}
+.order img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  transition: 0.2s ease-in-out;
+}
+.order .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 15px;
+  transition: 0.2s ease-in-out;
+}
+.order .card .card-detail p {
+  opacity: 0;
+  position: relative;
+  font-size: 25px;
+  font-weight: normal;
+}
+.order .card:hover {
+  background-color: #848484;
+  color: #fff;
+  cursor: pointer;
+}
+.order .card:hover .card-detail p {
+  opacity: 1;
+}
+.order .card:hover img {
+  top: -20%;
+  transform: scale(1.1);
+}

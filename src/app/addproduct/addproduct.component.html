@@ -1,0 +1,68 @@
+@if(this._user.isAdmin()){
+<div class="container">
+  <h2>Add Product</h2>
+  <form class="form">
+    <input
+      type="text"
+      placeholder="Phone Reference"
+      name="id"
+      [(ngModel)]="data.id"
+    />
+    <input
+      type="text"
+      placeholder="Phone Name"
+      name="name"
+      [(ngModel)]="data.name"
+    />
+    <input
+      type="text"
+      placeholder="Phone Brand"
+      name="brand"
+      [(ngModel)]="data.brand"
+    />
+    <input
+      type="text"
+      placeholder="Phone Price"
+      name="price"
+      [(ngModel)]="data.price"
+    />
+    <input
+      type="text"
+      placeholder="Phone color"
+      name="color"
+      [(ngModel)]="data.color"
+    />
+    <textarea
+      name="description"
+      [(ngModel)]="data.description"
+      placeholder="Description"
+    ></textarea>
+    <input
+      type="text"
+      placeholder="Image"
+      name="image"
+      [(ngModel)]="data.image"
+    />
+    <label class="promo"
+      >Promo
+      <input type="checkbox" name="promo" [(ngModel)]="data.promo" id="promo" />
+      <span class="checkmark"></span>
+    </label>
+    @if(this.data.promo){
+    <input
+      type="text"
+      placeholder="Promo Price"
+      name="promoprice"
+      [(ngModel)]="data.prixPromo"
+    />
+    }
+    <input
+      type="text"
+      placeholder="Quantity"
+      name="quantity"
+      [(ngModel)]="data.qte"
+    />
+    <button type="submit" (submit)="add()">Add Product</button>
+  </form>
+</div>
+}

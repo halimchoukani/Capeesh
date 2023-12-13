@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { of, filter } from 'rxjs';
 import { gsap } from 'gsap/gsap-core';
 import { UserService } from '../services/user.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
