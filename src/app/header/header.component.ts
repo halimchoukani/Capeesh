@@ -39,6 +39,7 @@ export class HeaderComponent implements AfterViewInit {
       opacity: 0,
       ease: 'ease-in',
     });
+
     gsap.to('#logo path', {
       duration: 1,
       delay: 2,

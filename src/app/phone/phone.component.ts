@@ -25,6 +25,11 @@ export class PhoneComponent implements OnInit {
     this.id = +this.router.snapshot.params['id'];
     this.phone = this.users.findPhone(this.id);
     console.log(this.phone);
+    this.relatedPhones = this.users.RelatedPhones(
+      this.phone.brand,
+      this.id,
+      this.phone.price
+    );
   }
 
   redirect(id: number) {
