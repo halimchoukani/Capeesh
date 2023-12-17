@@ -13,7 +13,7 @@
     </div>
     <div class="link">
       @if (this.users.isAdmin()) {
-      <a [routerLink]="'/store'">Delete Phone</a>
+      <a [routerLink]="'/store'" (click)="deletephone()">Delete Phone</a>
       }@else {
       <a [routerLink]="'/store'" (click)="addtopanier()">Order Now</a>
       }

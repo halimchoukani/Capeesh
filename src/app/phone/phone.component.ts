@@ -20,7 +20,9 @@ export class PhoneComponent implements OnInit {
     private router: ActivatedRoute,
     private routeLink: Router
   ) {}
-
+  deletephone() {
+    this.users.deletePhone(this.id);
+  }
   ngOnInit() {
     this.id = +this.router.snapshot.params['id'];
     this.phone = this.users.findPhone(this.id);
