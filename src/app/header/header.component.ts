@@ -38,18 +38,14 @@ export class HeaderComponent implements AfterViewInit {
       y: '-100%',
       opacity: 0,
       ease: 'ease-in',
-      onComplete: () => {
-        console.log('Slide down animation completed');
-      },
     });
-    gsap.to('#logo', {
+    gsap.to('#logo path', {
       duration: 1,
       delay: 2,
-      fill: '#000000',
+      fill: '#525252',
+      stroke: '#525252',
+      stagger: 0.1,
       ease: 'power3.out',
-      onComplete: () => {
-        console.log('Slide down animation completed');
-      },
     });
     gsap.from('.links', {
       duration: 1,
@@ -58,9 +54,6 @@ export class HeaderComponent implements AfterViewInit {
       opacity: 0,
       x: '60%',
       ease: 'ease-in',
-      onComplete: () => {
-        console.log('Slide down animation completed');
-      },
     });
     gsap.from('#search', {
       duration: 1,
@@ -68,9 +61,6 @@ export class HeaderComponent implements AfterViewInit {
       opacity: 0,
       ease: 'ease-in',
       delay: 1,
-      onComplete: () => {
-        console.log('Slide down animation completed');
-      },
     });
     gsap.from('#login', {
       duration: 1,
@@ -78,9 +68,6 @@ export class HeaderComponent implements AfterViewInit {
       opacity: 0,
       ease: 'ease-in',
       delay: 1.5,
-      onComplete: () => {
-        console.log('Slide down animation completed');
-      },
     });
   }
 }
