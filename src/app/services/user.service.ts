@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 })
 export class UserService {
   profileclicked = false;
+
   panier: any = {
     id: -1,
     phonename: '',
@@ -106,31 +107,6 @@ export class UserService {
     },
     {
       id: 5,
-      name: 'Iphone 15 Pro',
-      brand: 'Apple',
-      price: 1000,
-      color: 'Grey',
-      description: 'A smart phone from Apple.',
-      image:
-        'https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-1.jpg',
-      promo: false,
-      prixPromo: 0,
-      qte: 10,
-    },
-    {
-      id: 4,
-      name: 'Huawei P30',
-      brand: 'Huawei',
-      price: 900,
-      color: 'blue',
-      description: 'A smart phone from Huawei.',
-      image: 'https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p30-pro-1.jpg',
-      promo: false,
-      prixPromo: 0,
-      qte: 10,
-    },
-    {
-      id: 5,
       name: 'Huawei P30',
       brand: 'Huawei',
       price: 900,
@@ -152,6 +128,67 @@ export class UserService {
       promo: false,
       prixPromo: 0,
       qte: 10,
+    },
+    {
+      id: 7,
+      name: 'Google Pixel 4',
+      brand: 'Google',
+      price: 800,
+      color: 'black',
+      description: 'A smart phone from Google.',
+      image: 'https://fdn2.gsmarena.com/vv/pics/google/google-pixel-4-1.jpg',
+      promo: false,
+      prixPromo: 0,
+      qte: 15,
+    },
+    {
+      id: 8,
+      name: 'OnePlus 7T',
+      brand: 'OnePlus',
+      price: 700,
+      color: 'silver',
+      description: 'A smart phone from OnePlus.',
+      image: 'https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-7t-1.jpg',
+      promo: true,
+      prixPromo: 50,
+      qte: 20,
+    },
+    {
+      id: 9,
+      name: 'Xiaomi Mi 9',
+      brand: 'Xiaomi',
+      price: 600,
+      color: 'red',
+      description: 'A smart phone from Xiaomi.',
+      image: 'https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-9-1.jpg',
+      promo: true,
+      prixPromo: 75,
+      qte: 18,
+    },
+    {
+      id: 10,
+      name: 'Sony Xperia 1',
+      brand: 'Sony',
+      price: 850,
+      color: 'purple',
+      description: 'A smart phone from Sony.',
+      image: 'https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-1-1.jpg',
+      promo: false,
+      prixPromo: 0,
+      qte: 12,
+    },
+    {
+      id: 12,
+      name: 'Motorola Moto G Power',
+      brand: 'Motorola',
+      price: 300,
+      color: 'black',
+      description: 'A budget-friendly smartphone from Motorola.',
+      image:
+        'https://fdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g-power-1.jpg',
+      promo: false,
+      prixPromo: 0,
+      qte: 25,
     },
   ];
   currentUser: any = {
@@ -278,29 +315,32 @@ export class UserService {
       return -1;
     }
   }
+  cart: any = [];
   addPhoneToPanier(phone: any) {
-    if (this.decreaseQte(phone.id)) {
-      this.panier.id = phone.id;
-      this.panier.phonename = phone.name;
-      this.panier.phonebrand = phone.brand;
-      this.panier.phonecolor = phone.color;
-      this.panier.phoneimage = phone.image;
-      this.panier.phonepromo = phone.promo;
-      this.panier.orderdate = new Date();
-      this.panier.phoneprixPromo = phone.prixPromo;
-      if (this.foundinPanier(phone.id) != -1) {
-        this.panier.phoneqte =
-          this.currentUser.panier[this.foundinPanier(phone.id)].phoneqte + 1;
-        this.panier.phoneprice = phone.price * this.panier.phoneqte;
-      } else {
-        this.panier.phoneqte = 1;
-        this.panier.phoneprice = phone.price;
-        this.currentUser.panier.push(this.panier);
-      }
+    if (this.isLoggedIn()) {
+      if (this.decreaseQte(phone.id)) {
+        this.panier.id = phone.id;
+        this.panier.phonename = phone.name;
+        this.panier.phonebrand = phone.brand;
+        this.panier.phonecolor = phone.color;
+        this.panier.phoneimage = phone.image;
+        this.panier.phonepromo = phone.promo;
+        this.panier.orderdate = new Date();
+        this.panier.phoneprixPromo = phone.prixPromo;
+        if (this.foundinPanier(phone.id) != -1) {
+          this.panier.phoneqte =
+            this.cart.panier[this.foundinPanier(phone.id)].phoneqte + 1;
+          this.panier.phoneprice = phone.price * this.panier.phoneqte;
+        } else {
+          this.panier.phoneqte = 1;
+          this.panier.phoneprice = phone.price;
+          this.currentUser.panier.push(this.panier);
+        }
 
-      alert('Phone added to cart');
-    } else {
-      alert('Phone not available');
+        alert('Phone added to cart');
+      } else {
+        alert('Phone not available');
+      }
     }
   }
   login(data: any) {

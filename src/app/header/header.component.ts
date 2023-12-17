@@ -13,7 +13,12 @@ import { UserService } from '../services/user.service';
 })
 export class HeaderComponent implements AfterViewInit {
   clicked = false;
+  logo: any;
   ngOnInit(): void {
+    this.logo = document.querySelectorAll('#logo path');
+    for (let index = 0; index < this.logo.length; index++) {
+      console.log(`Letter ${index} is ${this.logo[index].getTotalLength()}`);
+    }
     if (localStorage.getItem('user') != null) {
       this.users.currentUser = this.users.users.find(
         (user: { username: any; password: any }) =>
@@ -37,11 +42,10 @@ export class HeaderComponent implements AfterViewInit {
         console.log('Slide down animation completed');
       },
     });
-    gsap.from('#header-title', {
+    gsap.to('#logo', {
       duration: 1,
-      delay: 0.5,
-      opacity: 0,
-      x: '-200%',
+      delay: 2,
+      fill: '#000000',
       ease: 'power3.out',
       onComplete: () => {
         console.log('Slide down animation completed');

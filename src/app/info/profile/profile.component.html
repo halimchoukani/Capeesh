@@ -11,24 +11,7 @@
     </div>
   </div>
   @if(!this.users.isAdmin()){
-  <div class="profile-orders">
-    <h2>Orders</h2>
-    <div class="order">
-      @for (item of user.panier; track $index) {
-      <div class="card">
-        <div class="order-image">
-          <img [src]="item.phoneimage" alt="" />
-        </div>
-        <div class="order-info">
-          <h3>{{ item.phonename }}</h3>
-          <h4>Order Date: {{ item.orderdate | date }}</h4>
-          <h4>Order qte: {{ item.phoneqte }}</h4>
-          <h4>Order Total: {{ item.phoneprice | currency }}</h4>
-        </div>
-      </div>
-      }
-    </div>
-  </div>
+  <app-cart></app-cart>
   } @else {
   <div class="add-cont">
     <a [routerLink]="'/addphone'" class="add">
