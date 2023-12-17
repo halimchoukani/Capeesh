@@ -1,3 +1,13 @@
+.profile-orders {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 90vw;
+  margin: auto;
+}
+
 .order {
   position: relative;
   display: grid;

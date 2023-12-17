@@ -4,8 +4,9 @@
     <h3>{{ phone.brand }}</h3>
     <p>{{ phone.description }}</p>
     <div class="price">
-      @if(this.phone.promo){
-      <h3>{{ phone.prixPromo | currency }}</h3>
+      @if(this.phone.prixPromo>0){
+      <h3 class="red">{{ phone.price | currency }}</h3>
+      <h3 class="green">{{ phone.price - phone.prixPromo | currency }}</h3>
       }@else {
       <h3>{{ phone.price | currency }}</h3>
       }

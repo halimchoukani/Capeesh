@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 })
 export class UserService {
   profileclicked = false;
-
   panier: any = {
     id: -1,
     phonename: '',
@@ -315,34 +314,39 @@ export class UserService {
       return -1;
     }
   }
-  cart: any = [];
-  addPhoneToPanier(phone: any) {
-    if (this.isLoggedIn()) {
-      if (this.decreaseQte(phone.id)) {
-        this.panier.id = phone.id;
-        this.panier.phonename = phone.name;
-        this.panier.phonebrand = phone.brand;
-        this.panier.phonecolor = phone.color;
-        this.panier.phoneimage = phone.image;
-        this.panier.phonepromo = phone.promo;
-        this.panier.orderdate = new Date();
-        this.panier.phoneprixPromo = phone.prixPromo;
-        if (this.foundinPanier(phone.id) != -1) {
-          this.panier.phoneqte =
-            this.cart.panier[this.foundinPanier(phone.id)].phoneqte + 1;
-          this.panier.phoneprice = phone.price * this.panier.phoneqte;
-        } else {
-          this.panier.phoneqte = 1;
-          this.panier.phoneprice = phone.price;
-          this.currentUser.panier.push(this.panier);
-        }
 
-        alert('Phone added to cart');
+  addPhoneToPanier(phone: any) {
+    console.log(this.currentUser.panier);
+
+    if (this.decreaseQte(phone.id)) {
+      let newPanier = {
+        id: phone.id,
+        phonename: phone.name,
+        phonebrand: phone.brand,
+        phonecolor: phone.color,
+        phoneimage: phone.image,
+        phonepromo: phone.promo,
+        orderdate: new Date(),
+        phoneprixPromo: phone.prixPromo,
+        phoneqte: 1,
+        phoneprice: phone.price,
+      };
+
+      let foundIndex = this.foundinPanier(phone.id);
+      if (foundIndex != -1) {
+        newPanier.phoneqte = this.currentUser.panier[foundIndex].phoneqte + 1;
+        newPanier.phoneprice = phone.price * newPanier.phoneqte;
+        this.currentUser.panier[foundIndex] = newPanier;
       } else {
-        alert('Phone not available');
+        this.currentUser.panier.push(newPanier);
       }
+
+      alert('Phone added to cart');
+    } else {
+      alert('Phone not available');
     }
   }
+
   login(data: any) {
     if (this.isExist(data)) {
       localStorage.setItem('user', JSON.stringify(data));

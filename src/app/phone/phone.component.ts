@@ -23,14 +23,8 @@ export class PhoneComponent implements OnInit {
 
   ngOnInit() {
     this.id = +this.router.snapshot.params['id'];
-    this.phone = this.users.phones.find(
-      (phone: { id: number }) => phone.id === this.id
-    );
-    this.relatedPhones = this.users.RelatedPhones(
-      this.phone.brand,
-      this.id,
-      this.phone.price
-    );
+    this.phone = this.users.findPhone(this.id);
+    console.log(this.phone);
   }
 
   redirect(id: number) {

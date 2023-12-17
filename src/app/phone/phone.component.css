@@ -48,6 +48,15 @@
   font-size: 70px;
   font-weight: normal;
 }
+
+.red {
+  color: red;
+  text-decoration: line-through;
+}
+.green {
+  color: green;
+}
+
 .related-cont {
   display: flex;
   overflow: hidden;
