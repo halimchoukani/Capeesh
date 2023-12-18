@@ -1,7 +1,7 @@
 @if(this._user.isAdmin()){
 <div class="container">
   <h2>Add Product</h2>
-  <form class="form">
+  <form class="form" (submit)="add()">
     <input
       type="text"
       placeholder="Phone Reference"
@@ -62,7 +62,7 @@
       name="quantity"
       [(ngModel)]="data.qte"
     />
-    <button type="submit" (submit)="add()">Add Product</button>
+    <button type="submit">Add Product</button>
   </form>
 </div>
 }

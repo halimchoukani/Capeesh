@@ -16,20 +16,19 @@ export class AddproductComponent {
     id: null,
     name: null,
     brand: null,
-    price: null,
+    price: 0,
     color: null,
     description: null,
     image: null,
     promo: false,
-    prixPromo: null,
+    prixPromo: 0,
     qte: null,
   };
   add() {
+    console.log(this.data);
     this.ok = this._user.addPhone(this.data);
     if (this.ok) {
       this.router.navigate(['/store']);
-    } else {
-      alert('Phone already exist : try another Reference');
     }
   }
   constructor(public _user: UserService, private router: Router) {}

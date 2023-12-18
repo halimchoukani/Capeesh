@@ -287,19 +287,24 @@ export class UserService {
     }
   }
   addPhone(data: any) {
-    if (this.phones.length == 0) {
-      data.id = 1;
+    if (data.id == null || data.name == null||data.brand==null||data.price == 0||data.description == null||data.image == null||data.qte == null) {
+      alert('CHeck Values!!');
+      return false;
     } else {
-      if (this.phoneExist(data)) {
-        alert('Phone already exist');
-        return false;
+      if (this.phones.length == 0) {
+        data.id = 1;
       } else {
-        data.id = this.phones[this.phones.length - 1].id + 1;
+        if (this.phoneExist(data)) {
+          alert('Phone already exist');
+          return false;
+        } else {
+          data.id = this.phones[this.phones.length - 1].id + 1;
+        }
       }
+      this.phones.push(data);
+      alert('Phone added successfully');
+      return true;
     }
-    this.phones.push(data);
-    return true;
-    alert('Phone added successfully');
   }
   foundinPanier(id: Number) {
     const found = this.currentUser.panier.some(
