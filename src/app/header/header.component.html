@@ -86,7 +86,9 @@
     </li>
     }@else{
     <li class="links">
-      <a class="linkText" routerLink="/cart"> cart </a>
+      <a class="linkText" routerLink="/cart">
+        cart <span>{{ this.currentuser.panier.length }}</span>
+      </a>
     </li>
     <li class="links login">
       <a class="linkText" routerLink="/login"> Login </a>

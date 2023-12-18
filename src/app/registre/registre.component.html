@@ -26,11 +26,10 @@
       [(ngModel)]="data.password"
     />
     <input
-      type="file"
-      placeholder="image"
+      type="text"
+      placeholder="Image"
       name="image"
-      id="file"
-      (change)="select($event)"
+      [(ngModel)]="data.image"
     />
     <button type="submit" (click)="registre()">Registre</button>
   </form>
