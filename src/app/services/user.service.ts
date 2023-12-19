@@ -16,6 +16,7 @@ export class UserService {
     phoneprixPromo: 0,
     orderdate: new Date(),
     phoneqte: 0,
+    purchase: false,
   };
   users: any = [
     {
@@ -202,7 +203,31 @@ export class UserService {
     pricePanier: 0,
     phoneNumber: '',
   };
-
+  deleteUser(id: Number) {
+    let index = this.users.findIndex((user: any) => user.id == id);
+    if (index != -1) {
+      this.users.splice(index, 1);
+      alert('User deleted successfully');
+    } else {
+      alert('User not found');
+    }
+  }
+  confirmPurchase(id: Number) {
+    if (this.isLoggedIn()) {
+      let index = this.currentUser.panier.findIndex(
+        (phone: any) => phone.id == id
+      );
+      if (index != -1) {
+        this.currentUser.panier.splice(index, 1);
+        alert('Thnx For your purchase');
+      } else {
+        alert('Phone not found');
+      }
+    } else {
+      alert('You must login first');
+      this.router.navigate(['/login']);
+    }
+  }
   isAdmin() {
     return this.currentUser.username == 'admin';
   }
@@ -287,7 +312,15 @@ export class UserService {
     }
   }
   addPhone(data: any) {
-    if (data.id == null || data.name == null||data.brand==null||data.price == 0||data.description == null||data.image == null||data.qte == null) {
+    if (
+      data.id == null ||
+      data.name == null ||
+      data.brand == null ||
+      data.price == 0 ||
+      data.description == null ||
+      data.image == null ||
+      data.qte == null
+    ) {
       alert('CHeck Values!!');
       return false;
     } else {
@@ -335,6 +368,7 @@ export class UserService {
         phoneprixPromo: phone.prixPromo,
         phoneqte: 1,
         phoneprice: phone.price,
+        purchase: false,
       };
 
       let foundIndex = this.foundinPanier(phone.id);

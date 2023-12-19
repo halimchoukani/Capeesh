@@ -96,3 +96,32 @@
   top: -20%;
   transform: scale(1.1);
 }
+
+.icon img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.table {
+  width: 100vw;
+}
+.text {
+  font-size: 20px;
+}
+
+.danger {
+  color: red;
+}
+.normal {
+  color: green;
+}
+.btn {
+  background-color: red;
+  color: #fff;
+  border: none;
+  width: 50px;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}

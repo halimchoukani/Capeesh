@@ -19,5 +19,24 @@
       <h2>Add Product</h2>
     </a>
   </div>
+  <div class="users-list">
+    <table class="table">
+      @for (user of this.users.users; track $index) {
+      <tr>
+        <td class="icon"><img [src]="user.image" alt="" /></td>
+        <td class="text">{{ user.username }}</td>
+        <td class="text">{{ user.email }}</td>
+        @if(user.status == 'admin'){
+        <td class="text normal">{{ user.status }}</td>
+        }@else {
+        <td class="text normal">{{ user.status }}</td>
+        <td (click)="this.users.deleteUser(user.id)">
+          <span class="btn btn-danger">Delete User</span>
+        </td>
+        }
+      </tr>
+      }
+    </table>
+  </div>
   }
 </div>

@@ -11,5 +11,9 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
 })
 export class CartComponent {
   user = this.users.currentUser;
+  buy(item: any) {
+    item.purchase = true;
+    this.users.confirmPurchase(item.id);
+  }
   constructor(public users: UserService) {}
 }

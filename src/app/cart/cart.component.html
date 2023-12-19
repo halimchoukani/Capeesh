@@ -11,6 +11,8 @@
         <h4>Order Date: {{ item.orderdate | date }}</h4>
         <h4>Order qte: {{ item.phoneqte }}</h4>
         <h4>Order Total: {{ item.phoneprice | currency }}</h4>
+
+        <button class="btn" (click)="buy(item)">Buy</button>
       </div>
     </div>
     }
