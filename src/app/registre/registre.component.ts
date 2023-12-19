@@ -22,7 +22,7 @@ export class RegistreComponent {
     this.image = event.target.files[0];
   }
   registre() {
-    this._user.registre(this.data, this.image);
+    this._user.registre(this.data);
     this.router.navigate(['/store']);
   }
   constructor(public _user: UserService, private router: Router) {}

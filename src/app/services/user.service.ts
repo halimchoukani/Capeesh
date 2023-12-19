@@ -22,7 +22,8 @@ export class UserService {
     {
       id: 0,
       username: 'admin',
-      image: 'https://www.w3schools.com/howto/img_avatar.png',
+      image:
+        'https://images.unsplash.com/photo-1638486071992-536e48c8fa3e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bG9vayUyMGJhY2t8ZW58MHx8MHx8fDA%3D',
       email: 'admin@capeesh.com',
       adresse: 'admin adresse',
       password: 'admin',
@@ -399,7 +400,7 @@ export class UserService {
     }
   }
 
-  registre(data: any, image: any) {
+  registre(data: any) {
     if (this.isExist(data)) {
       alert('User already exist');
     } else {
@@ -411,7 +412,6 @@ export class UserService {
       data.status = 'user';
       data.panier = [];
       data.pricePanier = 0;
-      data.image = image;
       this.users.push(data);
       this.currentUser = data;
       localStorage.setItem(
